@@ -1,0 +1,10 @@
+#!/bin/sh
+
+OPENAI_API_KEY=$(pass openai-api)
+export OPENAI_API_KEY
+
+/usr/bin/clojure -J-XX:-OmitStackTraceInFastThrow -Sdeps '{:deps {nrepl/nrepl {:mvn/version "1.0.0"} cider/cider-nrepl {:mvn/version "0.30.0"}} :aliases {:cider/nrepl {:main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}}}' -M:lib/tools-deps+slf4j-nop:trace/flowstorm:cider/nrepl
+
+
+
+

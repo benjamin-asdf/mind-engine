@@ -1,0 +1,92 @@
+#+title:      the-society-of-mind-gpt
+#+date:       [2023-02-25 Sat 08:55]s
+#+filetags:   :clojure:code:
+#+identifier: 20230225T085542
+
+
+Initial idea notes:
+
+* Program that is inspired by
+- Max Harms Crystal Society
+- Minsky the society of mind book
+
+
+* Inspiried by Crystal Society and Minksy
+
+** prompt like "I am a memember of a mind.."
+
+- give it a xtdb
+- logic engine + db
+- it can also write files and define functions
+
+
+** Mind Engine
+- the engine is a clojure program
+- with xtdb running
+- it prompts the next round of prompts or some scheme like that
+- members are allowed to send instructions to the engine
+
+* Instructions
+
+[ :code ]
+[ :tx ]
+[ :global ]
+
+Maybe open communication to another member?
+
+We can have a global thought log that is put in every prompt.
+Alternatively, members add data as messages to the db.
+
+The engine also keeps an event log of everything happening.
+
+* Members ideas
+** Reason
+** Growth
+** Wisdom
+** Face
+** Vista
+** Heart
+** Soul
+
+* Thoughts
+
+Members can push current thoughts to the thought log.
+The thought log is allowed to grow to x characters.
+
+That probably comes with a strenght price.
+
+* Strenght
+
+Every member has a currency called strenght.
+
+Strenght might accumulate per time, depending on the implementation of
+the mind engine.
+
+** strenght physics
+- Strenght can be traded by members
+- Actions have a strength price
+- A member can pay strenght to reduce the strenght of another member,
+  called punishment
+- Maybe the engine is allowed to hand out infinite strenght
+
+* Mind engine loop
+** print current thoughts to the output
+
+* simple world
+
+Could build the example world that Minsky proposed.
+
+A,B,C, you
+
+  A
+/  \
+B - C
+
+can go left, can go right
+
+* Prompt
+
+* Concurrency?
+
+* Safety?
+arbitrary code evaluation :devil:

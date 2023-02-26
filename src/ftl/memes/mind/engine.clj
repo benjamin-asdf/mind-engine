@@ -36,6 +36,7 @@
    {:xt/id ::base-prompt
     :prompt "I am a mind. I am an agent in a mind. I am a member of a society of mind."}
    {:xt/id ::engine
+    :mind/agent :bedrock
     :mind/purpose "Model the ability to achieve complex goals. Be an intelligent mind."
     :description "The mind engine is a special member of the mind.
 It is a Clojure program. The main namespace is ftl.memes.mind.engine.
@@ -50,4 +51,10 @@ The mind engine will evaluate Clojure code and actions that the members submit t
   "
   []
 
+  ;; (let [prompt (xt/get xtdb-node ::base-prompt)]
+  ;;   (println prompt)
+  ;;   (doseq [member (xt/query xtdb-node [::xt/all :mind/agent])]
+  ;;     (println (str "Member: " (:xt/id member)))
+  ;;     (println (str "Description: " (:description member)))
+  ;;     (println (str "Mentation: "()))))
   )

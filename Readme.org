@@ -1,0 +1,6 @@
+Inspired by Crystal Society from Max Harms.
+And Marvin Minsky /The Society Of Mind/.
+
+If I can make stories with LLMs, then why can I not tell the epoch of
+a mind?
+

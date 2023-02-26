@@ -1,4 +1,7 @@
 {:deps
  {org.clojure/tools.deps.alpha {:mvn/version "0.14.1212"}
-   com.xtdb/xtdb-core {:mvn/version "1.22.1"}
-  com.xtdb/xtdb-rocksdb {:mvn/version "1.22.1"}}}
+  com.xtdb/xtdb-core {:mvn/version "1.22.1"}
+  com.xtdb/xtdb-rocksdb {:mvn/version "1.22.1"}
+  clojure-openai/clojure-openai
+  {:git/sha "58191280e57f474865bdcd3b0218ecdf1151e30d"
+   :git/url "https://github.com/wkok/openai-clojure.git"}}}
