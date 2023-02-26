@@ -3,12 +3,18 @@
 #+filetags:   :clojure:code:
 #+identifier: 20230225T085542
 
-
 Initial idea notes:
 
 * Program that is inspired by
 - Max Harms Crystal Society
-- Minsky the society of mind book
+  Listen: [[https://hpmorpodcast.com/?page_id=1958]]
+  It is a super fascinating book.
+- Minsky /The Society of mind/
+  One of a kind.
+  If you enjoy this you will like
+  Dennett Consciousness Explained,
+  Valentino Braitenberg Vehicles,
+  also /The Selfish Gene/.
 
 
 * Inspiried by Crystal Society and Minksy
@@ -19,12 +25,70 @@ Initial idea notes:
 - logic engine + db
 - it can also write files and define functions
 
-
 ** Mind Engine
 - the engine is a clojure program
 - with xtdb running
 - it prompts the next round of prompts or some scheme like that
 - members are allowed to send instructions to the engine
+- the engine can also write files and define functions
+- I call the Clojure program henceforth /The Engine/ or /mind-engine/.
+
+** Members
+ - members are allowed to send instructions to the engine
+- members can also write files and define functions
+- members can also send messages to each other
+- members can also join and leave the society
+
+** Rules
+- members must follow the rules of the society
+- members must respect each other
+- members must not abuse the engine
+- members must not use the engine for malicious purposes
+
+(lol, text-davinci is producing my notes now)
+
+* Epoch overview
+
+The whole thing is a bit like a text rpg but all the players are
+played by the LLM (=driver=).
+
+The program, the =mind-engine= keeps state and prompts =members= for
+mentation.
+
+The prompts are something along the lines of:
+
+#+begin_src example
+You are an agent of a mind. I am the mind-engine.
+I am a clojure program.
+I ask you for mentation instructions.
+
+Name: Growth
+Purpose: Accumulate competence and resources
+Last thoughts:
+[ "I should suggest a contracting scheme to the rest of the society and we can program contract functions for that in the mind-engine"]
+
+Instruction examples:
+[:eval (println "Hello World, from growth.")]
+[:tx-data
+[{:xt/id :growth/notes-to-self
+  :note "I should write a recursive mind-engine and run it via :eval"}]]
+
+What are the next instructions to the mind-engine?
+#+end_src
+
+text-davinci comming with something:
+
+#+begin_src clojure
+[:eval (println "Growth is an ongoing process. I should continue to seek out new opportunities and resources to expand my capabilities.")]
+[:tx-data
+[{:xt/id :growth/next-steps
+  :note "I should research new technologies and methods to increase my efficiency and effectiveness."}]]
+#+end_src
+
+The first idea was that one epoch is one round of this for each member for instance but
+not sure yet.
+I sort of want to allow concurrency. mind-engine has an epochal time model of things happening.
+But members might have different rates of looping.
 
 * Instructions
 
@@ -39,6 +103,14 @@ Alternatively, members add data as messages to the db.
 
 The engine also keeps an event log of everything happening.
 
+
+* Goals
+
+- Create a society of minds that can interact with each other
+- Create a system that can learn from its members
+- Create a system that can generate new ideas and solutions
+- Create a system that can be used for creative exploration and problem solving
+
 * Members ideas
 ** Reason
 ** Growth
@@ -48,6 +120,24 @@ The engine also keeps an event log of everything happening.
 ** Heart
 ** Soul
 
+*** generated ideas
+** Mind
+** Spirit
+** Knowledge
+** Creativity
+** Exploration
+** Discovery
+** Innovation
+** Imagination
+** Expression
+** Communication
+** Collaboration
+** Compassion
+** Respect
+** Love
+** Joy
+** Peace
+
 * Thoughts
 
 Members can push current thoughts to the thought log.
@@ -55,7 +145,24 @@ The thought log is allowed to grow to x characters.
 
 That probably comes with a strenght price.
 
-* Strenght
+* Goal overseer?
+It would be interesting to have something that detects when members or
+the whole system is stuck in cyclic thougth etc.
+Or / And something that says if the mind is not making progress with
+current approach or approaches.
+
+It would be even more interesting if that evolves by itself throught
+the economy system maybe
+
+* Economy system
+
+Members can earn points by contributing to the society.
+Points can be used to buy resources or access to certain features.
+
+This could be used to incentivize members to contribute and to
+encourage collaboration.
+
+** Strenght
 
 Every member has a currency called strenght.
 
@@ -70,6 +177,7 @@ the mind engine.
 - Maybe the engine is allowed to hand out infinite strenght
 
 * Mind engine loop
+
 ** print current thoughts to the output
 
 * simple world
@@ -88,5 +196,53 @@ can go left, can go right
 
 * Concurrency?
 
+** Idea:
+It would be nice if the proposed actions of a member would be weighted
+in how much resource they cost.
+
+This could be used to incentivize members to think about the cost of
+their actions.
+
+** Idea:
+
+It would be nice if the engine could detect when a member is stuck in
+a loop and suggest a different approach.
+
 * Safety?
 arbitrary code evaluation :devil:
+
+When a member wants to evaluate code mabye the rest of the society
+needs to vote with strenght or something.
+Also a member should not just be able to redefine functions in the
+mind engine or set their strenght.
+Although that would be super funny to see.
+
+** Idea:
+There are 2 main philosophies:
+A) try to encode safety as laws of physics, like on the engine level
+don't allow code that would change core functions in the engine
+B) User space, some member or members of the mind and some mechanism
+allows the society to stay fair  and safe.
+
+
+* Private thoughts and communication
+
+Private thoughts seem to make sense, if the members start being more sophisticated.
+
+
+* Communication
+Maybe a private communication channel between members?
+
+I was thinking saying something like /You are currently communicating
+to X/
+
+
+* Hooks
+The mind-engine should have hooks so members can code aspects of the
+engine easily.
+
+
+
+* Conclusion
+
+The Society of Mind GPT is an ambitious project that seeks to create a society of minds that can interact with each other, learn from its members, generate new ideas and solutions, and be used for creative exploration and problem solving. The project will involve creating an engine that can prompt the next round of prompts, allow members to send instructions to the engine, write files and define functions, and send messages to each other. The engine will also keep an event log of everything
