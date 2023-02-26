@@ -9,12 +9,11 @@ Initial idea notes:
 - Max Harms Crystal Society
   Listen: [[https://hpmorpodcast.com/?page_id=1958]]
   It is a super fascinating book.
-- Minsky /The Society of mind/
+  There is not much other fiction where the story is interely inside a
+  mind except /Inside Out/, which is worth seeing but does not
+  contribute much ideas here.
+- Minsky /The Society of mind/[fn:1]
   One of a kind.
-  If you enjoy this you will like
-  Dennett Consciousness Explained,
-  Valentino Braitenberg Vehicles,
-  also /The Selfish Gene/.
 
 * Inspiried by Crystal Society and Minksy
 
@@ -245,3 +244,11 @@ engine easily.
 * Conclusion
 
 The Society of Mind GPT is an ambitious project that seeks to create a society of minds that can interact with each other, learn from its members, generate new ideas and solutions, and be used for creative exploration and problem solving. The project will involve creating an engine that can prompt the next round of prompts, allow members to send instructions to the engine, write files and define functions, and send messages to each other. The engine will also keep an event log of everything
+
+* Footnotes
+
+[fn:1] 
+  If you enjoy this you will like
+  Dennett Consciousness Explained,
+  Valentino Braitenberg Vehicles,
+  also /The Selfish Gene/.
