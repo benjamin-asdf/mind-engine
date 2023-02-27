@@ -30,6 +30,7 @@ Initial idea notes:
 - members are allowed to send instructions to the engine
 - the engine can also write files and define functions
 - I call the Clojure program henceforth /The Engine/ or /mind-engine/.
+- Models mentation as =iteratation= of mind content.
 
 ** Members
  - members are allowed to send instructions to the engine
@@ -47,11 +48,14 @@ Initial idea notes:
 
 * Epoch overview
 
-The whole thing is a bit like a text rpg but all the players are
-played by the LLM (=driver=).
+It is like a shared machine where spearate agents are connected on prompts.
+The agents are simulated by an LLM, the =driver=.
 
 The program, the =mind-engine= keeps state and prompts =members= for
 mentation.
+
+Another concept is a time zoom. I expect the society to discuss and go
+back and forth until a single coherent thought, idea, decision etc is formed.
 
 The prompts are something along the lines of:
 
@@ -74,13 +78,14 @@ Instruction examples:
 What are the next instructions to the mind-engine?
 #+end_src
 
-text-davinci comming with something:
+=text-davinci= comming with something:
 
 #+begin_src clojure
-[:eval (println "Growth is an ongoing process. I should continue to seek out new opportunities and resources to expand my capabilities.")]
-[:tx-data
-[{:xt/id :growth/next-steps
-  :note "I should research new technologies and methods to increase my efficiency and effectiveness."}]]
+  [:eval (println "Growth is an ongoing process. I should continue to seek out new opportunities and resources to expand my capabilities.")]
+  [:tx-data
+  [{:xt/id :growth/next-steps
+
+    :note "I should research new technologies and methods to increase my efficiency and effectiveness."}]]
 #+end_src
 
 The first idea was that one epoch is one round of this for each member for instance but
@@ -239,15 +244,38 @@ to X/
 The mind-engine should have hooks so members can code aspects of the
 engine easily.
 
+* Goals in bedrock?
 
+Some mechanism that decides on current goals, then hands out rewards
+to members working well together to achieve a goal.
+
+* Society and good members
+The mind-engine and economy should work in a way that requires the
+members of the society to work well together for achieving things.
+
+* User
+A human could participate in their own prompt and make the mind-engine
+do things.
 
 * Conclusion
 
-The Society of Mind GPT is an ambitious project that seeks to create a society of minds that can interact with each other, learn from its members, generate new ideas and solutions, and be used for creative exploration and problem solving. The project will involve creating an engine that can prompt the next round of prompts, allow members to send instructions to the engine, write files and define functions, and send messages to each other. The engine will also keep an event log of everything
+The Society of Mind GPT is an ambitious project that seeks to create a
+society of minds that can interact with each other, learn from its
+members, generate new ideas and solutions, and be used for creative
+exploration and problem solving. The project will involve creating an
+engine that can prompt the next round of prompts, allow members to
+send instructions to the engine, write files and define functions, and
+send messages to each other. The engine will also keep an event log of
+everything.
+
+Would be kindof sick if this thing boots up and asks /What is my purpose?/.
+
+I dreamt of a robot that had an orange light blinking when its heart module was
+thinking.
 
 * Footnotes
 
-[fn:1] 
+[fn:1]
   If you enjoy this you will like
   Dennett Consciousness Explained,
   Valentino Braitenberg Vehicles,
