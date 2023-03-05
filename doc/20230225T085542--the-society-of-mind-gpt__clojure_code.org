@@ -75,7 +75,7 @@ Instruction examples:
 [{:xt/id :growth/notes-to-self
   :note "I should write a recursive mind-engine and run it via :eval"}]]
 
-What are the next instructions to the mind-engine?
+what are the next instructions to the mind-engine?
 #+end_src
 
 =text-davinci= comming with something:
@@ -84,7 +84,6 @@ What are the next instructions to the mind-engine?
   [:eval (println "Growth is an ongoing process. I should continue to seek out new opportunities and resources to expand my capabilities.")]
   [:tx-data
   [{:xt/id :growth/next-steps
-
     :note "I should research new technologies and methods to increase my efficiency and effectiveness."}]]
 #+end_src
 
@@ -227,6 +226,12 @@ don't allow code that would change core functions in the engine
 B) User space, some member or members of the mind and some mechanism
 allows the society to stay fair  and safe.
 
+** Reputation
+Would be sick if these higher level sociatal concepts would emerge.
+But another idea is to suggest this via the engine.
+One thing you might imagine is that you build it in, and the system
+starts ignoring what you put in.
+
 
 * Private thoughts and communication
 
@@ -257,6 +262,29 @@ members of the society to work well together for achieving things.
 A human could participate in their own prompt and make the mind-engine
 do things.
 
+* Driver
+
+What I call =driver= is the component that generates mentation output
+from a prompt.
+Currently there would be 2 implementations, a human driver basically
+sitting at a prompt and responding to the system.
+
+And another one that is llm driven.
+
+* Mentation atoms
+
+What I called instructions earlier. The =driver= is asked to output a
+list of =menation-atoms=.
+
+#+begin_src clojure
+         [:tx-data
+          [[:xt/put
+            {:xt/id :goal/progress-rating:}]]]
+#+end_src
+
+** "mentatoms" ?
+
+
 * Conclusion
 
 The Society of Mind GPT is an ambitious project that seeks to create a
@@ -268,7 +296,9 @@ send instructions to the engine, write files and define functions, and
 send messages to each other. The engine will also keep an event log of
 everything.
 
-Would be kindof sick if this thing boots up and asks /What is my purpose?/.
+Would be kindof sick if this thing boots up and asks /What is my
+purpose?/.
+
 
 I dreamt of a robot that had an orange light blinking when its heart module was
 thinking.
