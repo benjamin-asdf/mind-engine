@@ -5,19 +5,8 @@
 ;; I don't really have an abstraction for the
 ;; the input opts
 ;; bit of a research topic
-;; should I say {:kind :text .... }
+;; should I say {:kind :text :creativity 0-1 .... }
 
-;; (defn prompt-driver []
-;;   (reify
-;;     ftl.memes.mind.protocols/PromptDriver
-;;     (prompt [this opts]
-;;       (->
-;;        (api/create-completion opts)
-;;        :choices
-;;        first
-;;        :text))))
-
-;; todo I want to give feeback to the prompt
 (defn ->mentation-atoms [text]
   (try
     [true (read-string (format "[%s]" text))]
@@ -27,7 +16,7 @@
 
 (defn prompt [opts]
   (let [completion (api/create-completion opts)
-        text (get-text)
+        text (get-text completion)
         [ok? atoms] (->mentation-atoms text)]
     (if ok?
       {:prompt/raw completion
@@ -53,46 +42,20 @@ Instruction examples:
 [:eval (println \"Hello World, from growth.\")]
 [:tx-data
 [{:xt/id :growth/notes-to-self
-  :note \"I should write a recursive mind-engine and run it via :eval\"}]]
+  :note \"I should wrte a recursive mind-engine and run it via :eval\"}]]
 
-what are the next instructions to the mind-engine?
+What are the next instructions to the mind-engine?
 
 "
-     :max_tokens 100
-     :temperature 1}
-    api/create-completion)
-   get-text
-   ->mentation-atoms)
-  
-  *1
-  [[:db-store
-    :growth/notes-to-self
-    {:note "I should create a recursive mind-engine and run it via :eval, to further my potential",
-     :xt/id :growth/notes-to-self}]
-   [:recursion
-    (println
-     "Hello World, from growth's recursive mind-engine.")
-    :eval]]
+     :max_tokens 256
+     :temperature 1}))
 
+  (:prompt/mentation-atoms *1)
+  ;; lol
+  '[[:evaluate-strategy "Grow by increasing our resource base and improving our competence" :fn (fn [state] (update-state state :growth))]
+    [:analyze-trends "Growth" :fn (fn [state] (analyze-trends state :growth))]
+    [:design-solutions "Growth" :fn (fn [state] (design-solutions state :growth))]
+    [:implement-strategy "Growth" :fn (fn [state] (implement-strategy state :growth))]]
 
   
-  
-  (ftl.memes.mind.protocols/prompt
-   (prompt-driver)
-   {:model "text-davinci-003"
-    :prompt "Say this is a test"
-    :max_tokens 7
-    :temperature 0})
-  "\n\nThis is indeed a test"
-
-  {:id "cmpl-6oXTCyrb3Y9FMtNuYH2AcnftzwIgR",
-   :object "text_completion",
-   :created 1677503078,
-   :model "text-davinci-003",
-   :choices [{:text "\n\nThis is indeed a test",
-              :index 0,
-              :logprobs nil,
-              :finish_reason "length"}],
-   :usage {:prompt_tokens 5,
-           :completion_tokens 7,
-           :total_tokens 12}})
+  )
